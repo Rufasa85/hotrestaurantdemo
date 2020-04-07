@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <style>
+        .resCard {
+            border:1px solid black;
+            box-shadow: 3px 3px 5px black;
+            background:slategray;
+            width:20%;
+            border-radius:5%;
+        }
+
+        .tablesDiv, .waitlistDiv {
+            display:flex;
+        }
+    </style>
+</head>
+
+<body>
+    <h3>People with tables</h3>
+    <div class="tablesDiv"></div>
+    <h3>Waitlist</h3>
+    <div class="waitlistDiv"></div>
+    <script>
+        $.get("/api/tables").then(function (data) {
+            for (let i = 0; i < data.length; i++) {
+                const newCard = $("<div>");
+                newCard.addClass("resCard");
+                const nameHeader = $("<h4>")
+                nameHeader.text(data[i].name)
+                const phonePara = $("<p>")
+                phonePara.text(data[i].phone);
+                const emailPara = $("<p>")
+                emailPara.text(data[i].email);
+                newCard.append(nameHeader,phonePara,emailPara);
+                $(".tablesDiv").append(newCard);
+            }
+        })
+        $.get("/api/waitlist").then(function (data) {
+            for (let i = 0; i < data.length; i++) {
+                const newCard = $("<div>");
+                newCard.addClass("resCard");
+                const nameHeader = $("<h4>")
+                nameHeader.text(data[i].name)
+                const phonePara = $("<p>")
+                phonePara.text(data[i].phone);
+                const emailPara = $("<p>")
+                emailPara.text(data[i].email);
+                newCard.append(nameHeader,phonePara,emailPara);
+                $(".waitlistDiv").append(newCard);
+            }
+        })
+    </script>
+</body>
+
+</html>

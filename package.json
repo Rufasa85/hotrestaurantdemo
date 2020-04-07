@@ -1,0 +1,24 @@
+{
+  "name": "hotrestaurantdemo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Rufasa85/hotrestaurantdemo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Rufasa85/hotrestaurantdemo/issues"
+  },
+  "homepage": "https://github.com/Rufasa85/hotrestaurantdemo#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

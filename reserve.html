@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery.js"></script>
+</head>
+<body>
+    <h1>Make a reservation!</h1>
+    <form id="resForm">
+        <input type="text" placeholder="name" id = 'nameInput'>
+        <input type="text" placeholder="phone" id = 'phoneInput'>
+        <input type="text" placeholder="email" id = 'emailInput'>
+        <input type="submit" value="Reserve a table!">
+    </form>
+
+    <script>
+        $("#resForm").submit(function(event){
+            event.preventDefault();
+            console.log("you submitted a form!")
+            //grab input data, build reservation object
+            //make a post request to /api/tables
+            const newReservation = {
+                name:$("#nameInput").val(),
+                phone:$("#phoneInput").val(),
+                email:$("#emailInput").val()
+            }
+
+            // console.log(newReservation);
+            $.post("/api/tables",newReservation).then(function(data){
+                window.location.href = '/tables';
+            })
+        })
+    </script>
+</body>
+</html>
