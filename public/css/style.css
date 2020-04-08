@@ -1,0 +1,15 @@
+body {
+    background:salmon;
+}
+
+.resCard {
+    border:1px solid black;
+    box-shadow: 3px 3px 5px black;
+    background:slategray;
+    width:20%;
+    border-radius:5%;
+}
+
+.tablesDiv, .waitlistDiv {
+    display:flex;
+}
